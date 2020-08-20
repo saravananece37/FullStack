@@ -37,25 +37,25 @@ public class EmployeeControllerIntegrationTest {
 
 	}
 
-	@Test
+//	@Test
 	public void testGetAllEmployees() {
 		HttpHeaders headers = new HttpHeaders();
 		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 
 		ResponseEntity<String> response = restTemplate.exchange(getRootUrl() + "/employees",
 				HttpMethod.GET, entity, String.class);
-		
+
 		assertNotNull(response.getBody());
 	}
 
-	@Test
+	//@Test
 	public void testGetEmployeeById() {
 		Employee employee = restTemplate.getForObject(getRootUrl() + "/employees/1", Employee.class);
 		System.out.println(employee.getFirstName());
 		assertNotNull(employee);
 	}
 
-	@Test
+//	@Test
 	public void testCreateEmployee() {
 		Employee employee = new Employee();
 		employee.setEmailId("admin@gmail.com");
@@ -67,7 +67,7 @@ public class EmployeeControllerIntegrationTest {
 		assertNotNull(postResponse.getBody());
 	}
 
-	@Test
+	//@Test
 	public void testUpdateEmployee() {
 		int id = 1;
 		Employee employee = restTemplate.getForObject(getRootUrl() + "/employees/" + id, Employee.class);
@@ -80,7 +80,7 @@ public class EmployeeControllerIntegrationTest {
 		assertNotNull(updatedEmployee);
 	}
 
-	@Test
+	//@Test
 	public void testDeleteEmployee() {
 		int id = 2;
 		Employee employee = restTemplate.getForObject(getRootUrl() + "/employees/" + id, Employee.class);

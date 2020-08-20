@@ -1,4 +1,4 @@
-<h2>Employee Details</h2> 
+<h2>Employee Details</h2>
 
 <hr/>
 <div *ngIf="employee">
@@ -10,11 +10,12 @@
   </div>
   <div>
     <label><b>Email Id: </b></label> {{employee.emailId}}
-  </div>  
+  </div>
+  <div>
+    <label><b>Wages: </b></label>{{employee.wages}}
+  </div>
 </div>
 
 <br>
 <br>
 <button (click)="list()" class="btn btn-primary">Back to Employee List</button><br>
-
-

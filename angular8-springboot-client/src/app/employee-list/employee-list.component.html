@@ -9,6 +9,7 @@
           <th>Firstname</th>
           <th>Lastname</th>
           <th>Email</th>
+          <th>wages</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -17,13 +18,16 @@
           <td>{{employee.firstName}}</td>
           <td>{{employee.lastName}}</td>
           <td>{{employee.emailId}}</td>
-          <td><button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
+          <td>{{employee.wages}}</td>
+          <td>
               <button (click)="updateEmployee(employee.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
               <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            <span [hidden]="employee.firstName=='A'?false:true">
+              <button (click)="deleteEmployee(employee.id)" class="btn btn-danger" style="margin-left: 10px"> Delete</button>
+            </span>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-

@@ -1,4 +1,19 @@
-<h3>Create Employee</h3>
+<form [formGroup]="angForm" (ngSubmit)="onSubmit(angForm.value)" style="width: 400px">
+    <div class="form-group" >
+            <label class="sr-only">Name</label>
+            <input type="text" class="form-control" formControlName="routingKey">
+            <label *ngIf="angForm.get('routingKey').touched&&angForm.get('routingKey').invalid" [ngClass] = "'error'"  >Please enter the routing key before submit</label>
+    </div>
+    <div class="form-group">
+            <label class="sr-only">Email</label>
+            <input type="number" class="form-control" formControlName="message">
+            <label *ngIf="angForm.get('message').touched&&angForm.get('message').invalid" [ngClass] = "'error'" >Please enter message</label><br>
+    </div>
+           <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+</form>
+
+<!--
+<h3>Message Publish</h3>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -27,4 +42,4 @@
 <div [hidden]="!submitted">
   <h4>You submitted successfully!</h4>
    <button class="btn btn-success" (click)="newEmployee()">Add</button>
-</div>
+</div> -->

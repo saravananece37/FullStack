@@ -1,11 +1,8 @@
 package net.guides.springboot2.springboot2jpacrudexample.controller;
 
 import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
-
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +27,14 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
+	
+
+	@PostMapping("/mq")
+	public String createMq(@RequestBody Employee employee) {
+		return "Finewith";
+	}
+
+	
 	@GetMapping("/employees")
 	public List<Employee> getAllEmployees() {
 		return employeeRepository.findAll();
@@ -44,19 +49,20 @@ public class EmployeeController {
 	}
 
 	@PostMapping("/employees")
-	public Employee createEmployee(@Valid @RequestBody Employee employee) {
+	public Employee createEmployee(@RequestBody Employee employee) {
 		return employeeRepository.save(employee);
 	}
 
 	@PutMapping("/employees/{id}")
 	public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long employeeId,
-			@Valid @RequestBody Employee employeeDetails) throws ResourceNotFoundException {
+			@RequestBody Employee employeeDetails) throws ResourceNotFoundException {
 		Employee employee = employeeRepository.findById(employeeId)
 				.orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
 
 		employee.setEmailId(employeeDetails.getEmailId());
 		employee.setLastName(employeeDetails.getLastName());
 		employee.setFirstName(employeeDetails.getFirstName());
+		employee.setWages(employeeDetails.getWages());
 		final Employee updatedEmployee = employeeRepository.save(employee);
 		return ResponseEntity.ok(updatedEmployee);
 	}

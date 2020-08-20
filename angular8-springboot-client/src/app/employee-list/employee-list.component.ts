@@ -12,12 +12,14 @@ import { Router } from '@angular/router';
 })
 export class EmployeeListComponent implements OnInit {
   employees: Observable<Employee[]>;
-
+  isAdmin:boolean=false;
   constructor(private employeeService: EmployeeService,
     private router: Router) {}
 
   ngOnInit() {
+this.isAdmin=false;
     this.reloadData();
+
   }
 
   reloadData() {
@@ -40,5 +42,17 @@ export class EmployeeListComponent implements OnInit {
 
   updateEmployee(id: number){
     this.router.navigate(['update', id]);
+  }
+
+  isAdminCheck(name:string)
+  {
+    this.isAdmin=false;
+    console.log(name);
+
+    if(name=="1")
+    {
+    this.isAdmin=true;
+    console.log(this.isAdmin);
+    }
   }
 }

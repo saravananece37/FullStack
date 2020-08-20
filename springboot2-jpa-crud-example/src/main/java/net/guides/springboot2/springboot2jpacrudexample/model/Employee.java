@@ -15,17 +15,27 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 	private String emailId;
-	
+	private int wages;
 	public Employee() {
 		
 	}
 	
-	public Employee(String firstName, String lastName, String emailId) {
+	public Employee(String firstName, String lastName, String emailId,int wages) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailId = emailId;
+		this.wages=wages;
 	}
 	
+	@Column(name = "wages", nullable = false)
+	public int getWages() {
+		return wages;
+	}
+
+	public void setWages(int wages) {
+		this.wages = wages;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public long getId() {

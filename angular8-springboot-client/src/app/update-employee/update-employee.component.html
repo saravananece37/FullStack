@@ -16,6 +16,12 @@
       <input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.emailId" name="emailId">
     </div>
 
+    <div class="form-group">
+    <label for="wages">Wages</label>
+      <input type="number" class="form-control" name="wages" id="wages" required [(ngModel)]="employee.wages"
+      [ngClass]="{'is-invalid':submitted&&f.wages.errors}">
+    </div>
+
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
 </div>

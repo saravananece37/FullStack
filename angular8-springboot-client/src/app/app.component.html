@@ -7,23 +7,37 @@
     <li class="nav-item">
         <a routerLink="add" class="nav-link" routerLinkActive="active">Add Employee</a>
     </li>
+    <li class="nav-item">
+        <a routerLink="login" (onClick)="logIn()" class="nav-link" routerLinkActive="active">Login</a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="MQPublish" class="nav-link" routerLinkActive="active">MQPublish</a>
+    </li>
+
+
+    <li class="nav-item">
+        <a [hidden]="submitted" class="nav-link" routerLinkActive="active">Logout</a>
+        </li>
   </ul>
+
+
 </nav>
 
 
-<div class="container">
-  <br>
+<!-- <div class="container"> -->
+  <!-- <br>
   <h2 style="text-align: center;">{{title}}</h2>
-  <hr>  
+  <hr> -->
   <div class="card">
     <div class="card-body">
   <router-outlet></router-outlet>
     </div>
   </div>
-</div>
+<!-- </div> -->
 
-<footer class="footer">
+<!-- <footer class="footer">
   <div class="container">
       <span>All Rights Reserved 2019 @JavaGuides</span>
   </div>
-</footer>
+</footer> -->

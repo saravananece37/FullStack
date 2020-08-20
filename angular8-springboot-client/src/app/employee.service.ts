@@ -22,6 +22,13 @@ export class EmployeeService {
   updateEmployee(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
+  createMQ(value:any):Observable<any>
+  {
+    console.log(this.baseUrl);
+    return this.http.post(`${this.baseUrl}/mq`,value);
+
+  }
+
 
   deleteEmployee(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
